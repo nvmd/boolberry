@@ -619,11 +619,12 @@ bool daemon_backend::update_wallet_info()
 {
   CRITICAL_REGION_LOCAL(m_wallet_lock);
   view::wallet_info wi = AUTO_VAL_INIT(wi);
-  wi.address = m_wallet->get_account().get_public_address_str();
-  wi.tracking_hey = string_tools::pod_to_hex(m_wallet->get_account().get_keys().m_view_secret_key);
-  wi.balance = m_wallet->balance();
+  wi.address          = m_wallet->get_account().get_public_address_str();
+  wi.address_alias    = m_wallet->get_account_address_alias();
+  wi.tracking_key     = string_tools::pod_to_hex(m_wallet->get_account().get_keys().m_view_secret_key);
+  wi.balance          = m_wallet->balance();
   wi.unlocked_balance = m_wallet->unlocked_balance();
-  wi.path = m_wallet->get_wallet_path();
+  wi.path             = m_wallet->get_wallet_path();
   m_pview->update_wallet_info(wi);
   return true;
 }
