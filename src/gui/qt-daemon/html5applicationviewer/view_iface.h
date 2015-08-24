@@ -146,6 +146,7 @@ public:
   {
     uint64_t unlocked_balance;
     uint64_t balance;
+	int64_t unconfirmed_balance;
     std::string address;
     std::string address_alias;
     std::string tracking_key;
@@ -154,6 +155,7 @@ public:
     BEGIN_KV_SERIALIZE_MAP()
       KV_SERIALIZE(unlocked_balance)
       KV_SERIALIZE(balance)
+	  KV_SERIALIZE(unconfirmed_balance)
       KV_SERIALIZE(address)
       KV_SERIALIZE(address_alias)
       KV_SERIALIZE(tracking_key)
@@ -166,12 +168,14 @@ public:
     tools::wallet_rpc::wallet_transfer_info ti;
     uint64_t unlocked_balance;
     uint64_t balance;
+	int64_t unconfirmed_balance;
 
     BEGIN_KV_SERIALIZE_MAP()
       KV_SERIALIZE(ti)
       KV_SERIALIZE(unlocked_balance)
       KV_SERIALIZE(balance)
-    END_KV_SERIALIZE_MAP()
+	  KV_SERIALIZE(unconfirmed_balance)
+	END_KV_SERIALIZE_MAP()
   };
 
   struct transfers_array
