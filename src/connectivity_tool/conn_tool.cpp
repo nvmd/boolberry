@@ -346,7 +346,7 @@ bool handle_update_maintainers_info(po::variables_map& vm)
   crypto::secret_key prvk = AUTO_VAL_INIT(prvk);
   if(!get_private_key(prvk, vm))
   {
-    std::cout << "ERROR: secrete key error" << ENDL;
+    std::cout << "ERROR: secret key error" << ENDL;
     return false;
   }
   std::string path = command_line::get_arg(vm, arg_upate_maintainers_info);
