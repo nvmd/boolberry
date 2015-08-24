@@ -654,6 +654,11 @@ void wallet2::store()
   CHECK_AND_THROW_WALLET_EX(!r, error::file_save_error, m_wallet_file);
 }
 //----------------------------------------------------------------------------------------------------
+std::string wallet2::get_account_address_alias()
+{
+    return get_alias_for_address(m_account.get_public_address_str());
+}
+//----------------------------------------------------------------------------------------------------
 uint64_t wallet2::unlocked_balance()
 {
   uint64_t amount = 0;

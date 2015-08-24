@@ -115,6 +115,7 @@ namespace tools
     void store();
     std::string get_wallet_path(){ return m_keys_file; }
     currency::account_base& get_account(){return m_account;}
+    std::string get_account_address_alias();
 
     void get_recent_transfers_history(std::vector<wallet_rpc::wallet_transfer_info>& trs, size_t offset, size_t count);
     void get_unconfirmed_transfers(std::vector<wallet_rpc::wallet_transfer_info>& trs);
